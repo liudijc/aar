@@ -1,0 +1,103 @@
+﻿
+namespace dm{
+	import io;
+	import raw;
+	import string;
+	import com;
+	hwnd=null;
+	Fhwnd=null;
+	
+	dmon = function(){
+		
+	 
+                          
+
+     dm , ver =免注册()  ;              
+    dm.Reg("a5282134e291406b8070224a148e0596e0da1c6d","")
+    Fhwnd=dm.FindWindow("","雷电模拟器") 
+    hwnd=dm.FindWindowEx(Fhwnd,"RenderWindow",) 
+    io.print(hwnd);
+    io.print(dm.ver());
+    
+    
+    //dm.BindWindowEx(hwnd,"dx.graphic.opengl","windows","windows","",0)
+    io.print(dm.BindWindowEx(hwnd,"gdi","windows","windows","",0));
+    //dm.MoveWindow(hwnd,-10,-10)
+       
+    
+		
+		
+	}
+	
+	免注册 = function(){
+    var  a ; 
+        var 路径 = io.fullpath("res\dm.dll");//转换成绝对路径
+        regdll := raw.loadDll("res\DmReg.dll"); //声明api 
+        setdllpathW = regdll.api("SetDllPathW","INT(sting path ,int mode)");//unicode编码接口 string 
+        ret = setdllpathW(string.toUnicode(路径),0);// SetDllPathW
+        if(ret ==1 ){ // 成功 返回1 不成功返回 0 
+          var  dm = com.CreateObject("dm.dmsoft");
+                          var ver = dm.ver() ; 
+                          return dm,ver ;  
+           }else{
+                           win.msgbox("调用失败") ; 
+                           return "失败" ; 
+                   } 
+       
+
+
+}
+	
+	jietu =function(){
+		//dm.Capture(0,0,2000,2000,"screen.bmp")
+		dm.Capture(0,0,2000,2000,"capture_file.bmp");
+		
+	}
+	
+	
+	
+	jiekou=function(a){
+		if(a=="on"){
+			dmon();
+			
+		}
+		elseif(a=="jt"){
+			jietu();
+		
+		}
+		elseif(a=="yc"){
+			dm.MoveWindow(Fhwnd,-1000,-1000)
+		
+		}
+		elseif(a=="xs"){
+			dm.MoveWindow(Fhwnd,1,1)
+		
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

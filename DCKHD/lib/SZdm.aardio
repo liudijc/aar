@@ -1,0 +1,400 @@
+﻿
+namespace SZdm{
+    
+	import io;
+	import raw;
+	import string;
+	import com;
+	hwnd=null;
+	Fhwnd=null;
+//
+
+dmon = function(){
+		
+	 
+                          
+
+     dm , ver =免注册()  ;              
+    dm.Reg("a5282134e291406b8070224a148e0596e0da1c6d","")
+    Fhwnd=dm.FindWindow("","雷电模拟器") 
+    hwnd=dm.FindWindowEx(Fhwnd,"RenderWindow",) 
+    io.print(hwnd);
+    io.print(dm.ver());
+    
+    
+    //dm.BindWindowEx(hwnd,"dx.graphic.opengl","windows","windows","",0)
+    io.print(dm.BindWindowEx(hwnd,"dx.graphic.opengl","windows","windows","",0));
+  
+    dm.SetPicPwd("a123456")
+    //dm.MoveWindow(hwnd,-10,-10)
+       
+    
+		
+		
+	}
+	
+免注册 = function(){
+    var  a ; 
+        var 路径 = io.fullpath("res\dm.dll");//转换成绝对路径
+        regdll := raw.loadDll("res\DmReg.dll"); //声明api 
+        setdllpathW = regdll.api("SetDllPathW","INT(sting path ,int mode)");//unicode编码接口 string 
+        ret = setdllpathW(string.toUnicode(路径),0);// SetDllPathW
+        if(ret ==1 ){ // 成功 返回1 不成功返回 0 
+          var  dm = com.CreateObject("dm.dmsoft");
+                          var ver = dm.ver() ; 
+                          return dm,ver ;  
+           }else{
+                           win.msgbox("调用失败") ; 
+                           return "失败" ; 
+                   } 
+       
+
+
+}
+MLshitu =function(x1,y1,x2,y2,color_format,sim){
+    
+
+    jg=dm.Ocr(x1,y1,x2,y2,color_format,sim)
+    //io.print(jg);
+    return jg; 
+    
+	
+}
+    
+
+test = function(){
+    dmon();
+    
+
+    
+}
+
+
+
+
+
+
+shizi = function(){
+	var weizhi1
+	var weizhi2
+	var weizhi3
+	var weizhi4
+	var weizhi5
+	var weizhi6
+	
+	
+
+	weizhi1=MLshitu(2,717,38,910, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi2=MLshitu(33,720,73,909, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi3=MLshitu(63,719,99,906, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi4=MLshitu(91,717,128,911, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi5=MLshitu(120,716,159,912, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi6=MLshitu(147,718,188,911, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	io.print(weizhi1);
+	io.print(weizhi2);
+	io.print(weizhi3);
+	io.print(weizhi4);
+	io.print(weizhi5);
+	io.print(weizhi6);
+	
+	
+}
+
+jiekou = function(a){
+	if(a="BDck"){
+		test();
+		
+		
+		
+	}
+	elseif(a="BDzk"){
+		io.print(dm.SetDict(0,"res\dm_soft.txt"));
+		
+	
+	}
+	elseif(a="123"){
+		test();
+
+		io.print(dm.SetDict(0,"res\dm_soft.txt"));
+		
+	
+	}
+	elseif(a="SZ"){
+		
+		shizi();
+	
+	}
+	elseif(a="bz1"){
+		
+		buzou1();
+	
+	}
+	elseif(a="bz2"){
+		
+		buzou2();
+	
+	}
+	elseif(a="bz3"){
+		
+		buzou3();
+	
+	}
+	elseif(a="bz4"){
+		
+		buzou4();
+	
+	}
+	elseif(a="bz5"){
+		
+		buzou5();
+	
+	}
+	elseif(a="bzall"){
+		import win.ui;
+		buzou1();
+		win.delay(2000) 
+		buzou2();
+		win.delay(2000) 
+		buzou3();
+		win.delay(2000) 
+		buzou4();
+		win.delay(2000) 
+		buzou5();
+	
+	}
+	elseif(a="kaiqijc"){
+		kaiqijc();
+
+	
+	}
+	
+	
+	
+	//io.print(a);
+	
+}
+buzou1=function(){
+    
+    //io.print(lwDll.findpic(0, 0, 2000, 2000, "vialiulanqi.bmp"))
+    //int( pointer x, pointer y);
+
+    var a=dm.FindPic(0,0,2000,2000,"vialiulanqi.bmp","000000",1,0,x,y)
+    //dm.MoveTo(::intX,::intY);
+    
+    
+     io.print(apointer &x,pointer &y);
+    
+    
+    //lwDll.MoveTo(lwDll.x()+15,lwDll.y()+15);
+    //lwDll.LeftClick();
+    
+    //lw.y(),lw.idx()
+     ///打开浏览器图片识别VIA
+    
+    
+   	
+   }
+buzou2=function(){
+    
+    io.print(lwDll.findpic(0, 0, 2000, 2000, "DC.bmp"))
+    io.print(lwDll.x(),lwDll.y(),lwDll.idx());
+    
+    lwDll.MoveTo(lwDll.x(),lwDll.y());
+    lwDll.LeftClick();
+    /*
+    var i=lwDll.findpic(0, 0, 2000, 2000, "jg.bmp");
+    
+    while(i=1){
+    
+ //io.print(str);
+     lwDll.MoveTo(398,500);//警告确认
+    lwDll.LeftClick();
+    */
+ 
+
+
+ 
+ 
+ 
+}
+    
+
+
+buzou3=function(){
+    
+    
+    io.print(lwDll.findpic(0, 0, 2000, 2000, "denglu.bmp"))
+    io.print(lwDll.x(),lwDll.y(),lwDll.idx());
+    
+    lwDll.MoveTo(lwDll.x(),lwDll.y());
+    lwDll.LeftClick();
+    
+
+
+    
+    //lw.y(),lw.idx()
+     ///点击登录
+    
+    
+   	
+   }
+buzou4=function(){
+
+
+    //账号
+   lwDll.MoveTo(161,425);
+   lwDll.LeftClick();
+   lwDll.KeyPressStr("liudijkk",1000);
+   win.delay(1000) 
+   //密码
+   lwDll.MoveTo(145,484);
+   lwDll.LeftClick();
+   lwDll.KeyPressStr("hcy365",1000);
+   win.delay(1000) 
+   
+
+   /*
+   var piclen= lwDll.Capture(330,436,387,467,1);
+   var code= lwDll.GetCode_Cr_Buffer ("liudijc","a123456",lwDll.x(),piclen,"0");
+   io.print(code);
+   lwDll.KeyPressStr(code,200);
+   */
+
+
+
+
+
+
+
+
+
+
+}
+    
+buzou5=function(){
+//验证码
+import baidu.client;
+import win.ui;
+var http = baidu.client(); 
+lwDll.Capture(332,539,409,576,"screen.bmp");
+win.delay(1000) 
+
+http.setAuth("23.45b2cebc2acf702947f6b7a05ca3d75d.2592000.1546404657.1195355902-11162073")
+//OCR识别接口
+var ocr = http.api("https://aip.baidubce.com/rest/2.0/ocr/v1/");
+var result = ocr.general_basic( 
+image = "screen.bmp";
+)
+
+io.print(result.words_result[1].words);
+lwDll.MoveTo(157,554);
+lwDll.LeftClick();
+win.delay(1000) 
+lwDll.KeyPressStr(result.words_result[1].words,200);
+lwDll.MoveTo(277,624);
+lwDll.LeftClick();
+   
+
+
+
+
+
+
+
+
+
+
+}
+
+
+kaiqijc=function(){
+    var i=1;
+    while(i=1){
+        
+        if(lwDll.findpic(0, 0, 2000, 2000, "vialiulanqi.bmp")=1){
+        	io.print("步骤一  浏览器");
+        	buzou1();
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "DC.bmp")=1){
+            io.print("步骤二  打开标签");
+        	buzou2();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "jg.bmp")=1){
+        io.print("确认警告");
+        io.print(lwDll.findpic(0, 0, 2000, 2000, "bz3queding.bmp"))
+        lwDll.MoveTo(lwDll.x()+6,lwDll.y()+6);
+        lwDll.LeftClick();
+            
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "denglu.bmp")=1){
+            io.print("步骤三 点击登录");
+        	buzou3();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "bz4.bmp")=1){
+            io.print("步骤四 进入登录");
+        	buzou4();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "bz5.bmp")=1){
+            io.print("步骤五 填写验证码");
+        	buzou5();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "yzmcw.bmp")=1){
+            io.print("验证码错误");
+            lwDll.MoveTo(271,312);
+            lwDll.LeftClick();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "ydl.bmp")=1 && lwDll.findpic(0, 0, 2000, 2000, "AG.bmp")=0){
+            io.print("已经登陆");
+            lwDll.MoveTo(521,310);
+            lwDll.LeftClick();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "AG.bmp")=1){
+            io.print("进入AG厅");
+            lwDll.MoveTo(lwDll.x(),lwDll.y());
+            lwDll.LeftClick();
+            i=0;
+        
+        }
+        win.delay(2000);
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    }
+    
+    
+    
+	
+}
+
+
+
+ 
+   }
+
+    
+   
+    
+
+
+
+
+
+
+
+	
+
+
+
