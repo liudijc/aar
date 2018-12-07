@@ -1,65 +1,17 @@
 import com; 
 import win.ui;
-/*DSG{{*/
-mainForm = win.form(text="aardio form";right=497;bottom=318)
-mainForm.add(
-button={cls="button";text="开始 ";left=175;top=248;right=289;bottom=297;bgcolor=32768;z=1};
-edit={cls="edit";left=103;top=89;right=373;bottom=192;edge=1;multiline=1;z=2}
-)
-/*}}*/
-
-mainForm.button.oncommand = function(id,event){
-            dm , ver =免注册()  ; 
-                          
-                    /*
-                   hwnd=dm.FindWindowSuper("雷电模拟器",0,1,"notepad",1,0) 
-                   hwnd=dm.FindWindow(“TheRender”, , , , hwnd, , , , , , , )
-                  var num =6829266987;   
-                  dm.MoveTo(1,1);
-             
-                  var dm_ret=dm.BindWindowEx(num,"gdi","windows","windows","",0)
-                  mainForm.edit.print(dm_ret)  ; 
-                  //n = tonumber( "68292" );//tonumber函数强制转换一个变量为数字，如果失败返回null空值
-                  //ss=dm.bindwindow(num,"gdi","windows","windows","",0)
-                  */
-                  
-            mainForm.edit.print(ver )  ;  
-            mainForm.edit.print(dm.Reg("a5282134e291406b8070224a148e0596e0da1c6d",""))  ; 
-            hwnd=dm.FindWindow("","雷电模拟器") 
-            hwnd=dm.FindWindowEx(hwnd,"RenderWindow",) 
-            mainForm.edit.print(hwnd)  
-            hwnd=dm.BindWindowEx(hwnd,"gdi","windows","windows","",0)
-            mainForm.edit.print(hwnd)  
-            
-            
-        
-}
+import dm;
 
 
+io.open();
+var i=1;
 
+while(i=1){
 
+str = io.getText();
 
+ dm.jiekou(str);
 
+    }
 
-免注册 = function(){
-    var  a ; 
-        var 路径 = io.fullpath("res\dm.dll");//转换成绝对路径
-        regdll := raw.loadDll("res\DmReg.dll"); //声明api 
-        setdllpathW = regdll.api("SetDllPathW","INT(sting path ,int mode)");//unicode编码接口 string 
-        ret = setdllpathW(string.toUnicode(路径),0);// SetDllPathW
-        if(ret ==1 ){ // 成功 返回1 不成功返回 0 
-          var  dm = com.CreateObject("dm.dmsoft");
-                          var ver = dm.ver() ; 
-                          return dm,ver ;  
-           }else{
-                           win.msgbox("调用失败") ; 
-                           return "失败" ; 
-                   } 
-       
-
-
-}
-
-
-mainForm.show() 
 return win.loopMessage();   
