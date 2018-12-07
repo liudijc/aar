@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project ver="10" name="aardio工程9" libEmbed="true" icon="..." ui="console" output="aardio工程9.exe" CompanyName="aardio" FileDescription="aardio工程9" LegalCopyright="Copyright (C) aardio 2018" ProductName="aardio工程9" InternalName="aardio工程9" FileVersion="0.0.0.1" ProductVersion="0.0.0.1" publishDir="/Publish/" dstrip="false">
+	<file name="main" path="main.aardio" comment="启动程序代码"/>
+	<folder name="资源文件" path="res" embed="true">
+		<file name="migceshi.aardio" path="res\migceshi.aardio" comment="res\migceshi.aardio"/>
+	</folder>
+	<folder name="help" path="help" comment="目录" embed="false">
+		<file name="main.aardio" path="help\main.aardio" comment="help\main.aardio"/>
+	</folder>
+</project>

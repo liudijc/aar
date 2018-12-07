@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>群聊</title>
+</head>
+<body>
+<h1>群聊</h1>
+<div style="width: 30%; float: left">
+    输入:<input type="text" id="msginput">
+    <button id="msgbtn">发送</button>
+    <hr>
+    <input type="file" id="tupian">
+    <button onclick="sendImg()">发送图片</button>
+</div>
+<div style="width: 65%; float: right" id="showbox">
+ 
+</div>
+</body>
+<script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.dev.js"></script>
+<script src="KHDsocket.js"></script>
+</html>
