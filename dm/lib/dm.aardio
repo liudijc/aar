@@ -5,6 +5,7 @@ namespace dm{
 	import string;
 	import com;
 	hwnd=null;
+	Fhwnd=null;
 	
 	dmon = function(){
 		
@@ -13,13 +14,15 @@ namespace dm{
 
      dm , ver =免注册()  ;              
     dm.Reg("a5282134e291406b8070224a148e0596e0da1c6d","")
-    hwnd=dm.FindWindow("","雷电模拟器") 
-    hwnd=dm.FindWindowEx(hwnd,"RenderWindow",) 
+    Fhwnd=dm.FindWindow("","雷电模拟器") 
+    hwnd=dm.FindWindowEx(Fhwnd,"RenderWindow",) 
     io.print(hwnd);
+    io.print(dm.ver());
     
-    dm.BindWindowEx(hwnd,"dx.graphic.opengl","windows","windows","",0)
-    //io.print(dm.BindWindowEx(hwnd,"gdi","windows","windows","",0));
-    dm.MoveWindow(hwnd,-10,-10)
+    
+    //dm.BindWindowEx(hwnd,"dx.graphic.opengl","windows","windows","",0)
+    io.print(dm.BindWindowEx(hwnd,"gdi","windows","windows","",0));
+    //dm.MoveWindow(hwnd,-10,-10)
        
     
 		
@@ -60,6 +63,14 @@ namespace dm{
 		}
 		elseif(a=="jt"){
 			jietu();
+		
+		}
+		elseif(a=="yc"){
+			dm.MoveWindow(Fhwnd,-1000,-1000)
+		
+		}
+		elseif(a=="xs"){
+			dm.MoveWindow(Fhwnd,1,1)
 		
 		}
 		
