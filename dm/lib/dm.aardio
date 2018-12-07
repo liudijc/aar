@@ -50,7 +50,7 @@ namespace dm{
 	
 	jietu =function(){
 		//dm.Capture(0,0,2000,2000,"screen.bmp")
-		dm.Capture(0,0,2000,2000,"C:\Users\HC\Desktop\绑定工具\【大漠上传】大漠插件绑定测试工具(VIP专用)v62\capture_file.bmp");
+		dm.Capture(0,0,2000,2000,"capture_file.bmp");
 		
 	}
 	
