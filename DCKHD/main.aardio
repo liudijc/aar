@@ -4,9 +4,7 @@ var app = chrome.app();
 import io;
 
 
-//import lib.wode;
-//import 中国;
-//import lw;
+
 io.open(); //打开控制台窗口
 //chrome.app.path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 
