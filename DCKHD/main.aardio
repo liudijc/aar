@@ -63,8 +63,9 @@ app.start("/res/2.aardio");
 //app.start("https://www.baidu.com/");
 
 //网页中可以调用 aardio.quit() 退出,也可以直接关闭chrome窗口退出
+
 doSomething = function(){
-    import SZdm;
+    
     
 
     var i=1;
@@ -78,15 +79,12 @@ str = io.getText();
  	import lw;
  }
  else {
+     import SZdm;
+     //import SZdm;
  SZdm.jiekou(str);
  }
  
 
- 
-
- 
- 
- 
  
 }
 
@@ -99,6 +97,18 @@ str = io.getText();
 
 
 thread.invoke(doSomething)
+
+
+
+
+
+ 
+
+
+
+
+
+
 
 //io.print(中国.北京.天气);
 

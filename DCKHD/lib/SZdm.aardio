@@ -5,8 +5,10 @@ namespace SZdm{
 	import raw;
 	import string;
 	import com;
+	import win;
 	hwnd=null;
 	Fhwnd=null;
+	//dm=null;
 //
 
 dmon = function(){
@@ -14,7 +16,7 @@ dmon = function(){
 	 
                           
 
-     dm , ver =免注册()  ;              
+    dm , ver =免注册()  ;              
     dm.Reg("a5282134e291406b8070224a148e0596e0da1c6d","")
     Fhwnd=dm.FindWindow("","雷电模拟器") 
     hwnd=dm.FindWindowEx(Fhwnd,"RenderWindow",) 
@@ -51,15 +53,92 @@ dmon = function(){
 
 
 }
-MLshitu =function(x1,y1,x2,y2,color_format,sim){
+MLshizi =function(x1,y1,x2,y2,color_format,sim){
     
 
-    jg=dm.Ocr(x1,y1,x2,y2,color_format,sim)
+    var jg=dm.Ocr(x1,y1,x2,y2,color_format,sim)
     //io.print(jg);
     return jg; 
     
 	
 }
+MLzhaotu =function(x1, y1, x2, y2, pic_name, delta_color,sim, dir){
+    
+
+    var jg=dm.FindPicE(x1, y1, x2, y2, pic_name, delta_color,sim, dir)
+    //io.print(jg);
+    return jg; 
+    
+	
+}
+MLzhaotuQP =function(pic_name){
+    
+
+    var jg=dm.FindPicE(0,0,2000,2000,pic_name,"000000",1,0)
+    
+    
+    if(jg="-1|-1|-1"){
+        return 0; 
+        
+    }
+    else {
+        
+        return jg; 
+    
+    }
+    
+    
+    //io.print(jg);
+    
+    
+	
+}
+MLzhaotuDJ =function(x1, y1, x2, y2, pic_name, delta_color,sim, dir){
+    
+
+
+    
+    
+    
+    var a=MLzhaotu(x1, y1, x2, y2, pic_name, delta_color,sim, dir);
+
+    var t = string.split(a,"|");
+     io.print(t[2],t[3]);
+     dm.MoveTo(t[2],t[3]);
+     dm.LeftClick();
+    
+    
+    
+    
+	
+}
+MLzhaotuDJQP =function(pic_name){
+    
+
+
+    
+    
+
+    var a=MLzhaotu(0,0,2000,2000,pic_name,"000000",1,0);
+
+    var t = string.split(a,"|");
+     io.print(t[2],t[3]);
+     dm.MoveTo(t[2],t[3]);
+     dm.LeftClick();
+    
+    
+    
+    
+	
+}
+MLyidongDJ =function(x,y){
+     dm.MoveTo(x,y);
+     dm.LeftClick();
+
+
+
+}
+
     
 
 test = function(){
@@ -68,11 +147,6 @@ test = function(){
 
     
 }
-
-
-
-
-
 
 shizi = function(){
 	var weizhi1
@@ -84,12 +158,12 @@ shizi = function(){
 	
 	
 
-	weizhi1=MLshitu(2,717,38,910, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
-	weizhi2=MLshitu(33,720,73,909, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
-	weizhi3=MLshitu(63,719,99,906, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
-	weizhi4=MLshitu(91,717,128,911, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
-	weizhi5=MLshitu(120,716,159,912, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
-	weizhi6=MLshitu(147,718,188,911, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi1=MLshizi(2,717,38,910, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi2=MLshizi(33,720,73,909, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi3=MLshizi(63,719,99,906, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi4=MLshizi(91,717,128,911, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi5=MLshizi(120,716,159,912, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
+	weizhi6=MLshizi(147,718,188,911, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8);
 	io.print(weizhi1);
 	io.print(weizhi2);
 	io.print(weizhi3);
@@ -114,6 +188,7 @@ jiekou = function(a){
 	}
 	elseif(a="123"){
 		test();
+		
 
 		io.print(dm.SetDict(0,"res\dm_soft.txt"));
 		
@@ -167,6 +242,17 @@ jiekou = function(a){
 
 	
 	}
+	elseif(a="dxc1"){
+		io.print("修改3");
+
+	
+	}
+	elseif(a="dxc2"){
+		io.print("ss");
+		io.print("2");
+
+	
+	}
 	
 	
 	
@@ -174,43 +260,39 @@ jiekou = function(a){
 	
 }
 buzou1=function(){
-    
-    //io.print(lwDll.findpic(0, 0, 2000, 2000, "vialiulanqi.bmp"))
-    //int( pointer x, pointer y);
+                
+       /*             
+     var a = MLzhaotuQP("vialiulanqi.bmp");         
+         if(a != "-1|-1|-1"){
+        	io.print("步骤一  浏览器");
+        	io.print(type(a),a);
+        	//buzou1();
+        }*/
+        
 
-    var a=dm.FindPic(0,0,2000,2000,"vialiulanqi.bmp","000000",1,0,x,y)
-    //dm.MoveTo(::intX,::intY);
+
     
     
-     io.print(apointer &x,pointer &y);
+
+    
+
+    
+    MLzhaotuDJQP("vialiulanqi.bmp");
+
     
     
-    //lwDll.MoveTo(lwDll.x()+15,lwDll.y()+15);
-    //lwDll.LeftClick();
-    
-    //lw.y(),lw.idx()
+
      ///打开浏览器图片识别VIA
     
     
    	
    }
 buzou2=function(){
-    
-    io.print(lwDll.findpic(0, 0, 2000, 2000, "DC.bmp"))
-    io.print(lwDll.x(),lwDll.y(),lwDll.idx());
-    
-    lwDll.MoveTo(lwDll.x(),lwDll.y());
-    lwDll.LeftClick();
-    /*
-    var i=lwDll.findpic(0, 0, 2000, 2000, "jg.bmp");
-    
-    while(i=1){
-    
- //io.print(str);
-     lwDll.MoveTo(398,500);//警告确认
-    lwDll.LeftClick();
-    */
- 
+
+    MLzhaotuDJQP("DC.bmp");
+
+
+
 
 
  
@@ -222,17 +304,12 @@ buzou2=function(){
 
 buzou3=function(){
     
-    
-    io.print(lwDll.findpic(0, 0, 2000, 2000, "denglu.bmp"))
-    io.print(lwDll.x(),lwDll.y(),lwDll.idx());
-    
-    lwDll.MoveTo(lwDll.x(),lwDll.y());
-    lwDll.LeftClick();
-    
+    MLzhaotuDJQP("denglu.bmp");
+
 
 
     
-    //lw.y(),lw.idx()
+    
      ///点击登录
     
     
@@ -242,29 +319,15 @@ buzou4=function(){
 
 
     //账号
-   lwDll.MoveTo(161,425);
-   lwDll.LeftClick();
-   lwDll.KeyPressStr("liudijkk",1000);
+
+   MLyidongDJ(161,425);
+   win.delay(1000) 
+   dm.SendString(hwnd,"liudijkk") 
    win.delay(1000) 
    //密码
-   lwDll.MoveTo(145,484);
-   lwDll.LeftClick();
-   lwDll.KeyPressStr("hcy365",1000);
-   win.delay(1000) 
+   MLyidongDJ(145,484);
+   dm.SendString(hwnd,"hcy365") 
    
-
-   /*
-   var piclen= lwDll.Capture(330,436,387,467,1);
-   var code= lwDll.GetCode_Cr_Buffer ("liudijc","a123456",lwDll.x(),piclen,"0");
-   io.print(code);
-   lwDll.KeyPressStr(code,200);
-   */
-
-
-
-
-
-
 
 
 
@@ -276,7 +339,7 @@ buzou5=function(){
 import baidu.client;
 import win.ui;
 var http = baidu.client(); 
-lwDll.Capture(332,539,409,576,"screen.bmp");
+dm.Capture(332,539,409,576,"screen.bmp");
 win.delay(1000) 
 
 http.setAuth("23.45b2cebc2acf702947f6b7a05ca3d75d.2592000.1546404657.1195355902-11162073")
@@ -287,12 +350,14 @@ image = "screen.bmp";
 )
 
 io.print(result.words_result[1].words);
-lwDll.MoveTo(157,554);
-lwDll.LeftClick();
+MLyidongDJ(157,554);
 win.delay(1000) 
-lwDll.KeyPressStr(result.words_result[1].words,200);
-lwDll.MoveTo(277,624);
-lwDll.LeftClick();
+dm.SendString(hwnd,result.words_result[1].words)
+win.delay(1000) 
+
+MLzhaotuDJQP("bz5-denglu.bmp")
+//MLyidongDJ(227,624);
+
    
 
 
@@ -311,60 +376,59 @@ kaiqijc=function(){
     var i=1;
     while(i=1){
         
-        if(lwDll.findpic(0, 0, 2000, 2000, "vialiulanqi.bmp")=1){
+        if(MLzhaotuQP("vialiulanqi.bmp")!= 0){
         	io.print("步骤一  浏览器");
         	buzou1();
         }
-        elseif(lwDll.findpic(0, 0, 2000, 2000, "DC.bmp")=1){
+        elseif(MLzhaotuQP("DC.bmp")!= 0){
             io.print("步骤二  打开标签");
         	buzou2();
         
         }
-        elseif(lwDll.findpic(0, 0, 2000, 2000, "jg.bmp")=1){
+        elseif(MLzhaotuQP("jg.bmp")!= 0){
         io.print("确认警告");
-        io.print(lwDll.findpic(0, 0, 2000, 2000, "bz3queding.bmp"))
-        lwDll.MoveTo(lwDll.x()+6,lwDll.y()+6);
-        lwDll.LeftClick();
+        MLzhaotuDJ();
+        MLzhaotuDJQP("bz3queding.bmp");
+
             
         
         }
-        elseif(lwDll.findpic(0, 0, 2000, 2000, "denglu.bmp")=1){
+        elseif(MLzhaotuQP("denglu.bmp")!= 0){
             io.print("步骤三 点击登录");
         	buzou3();
         
         }
-        elseif(lwDll.findpic(0, 0, 2000, 2000, "bz4.bmp")=1){
+        elseif(MLzhaotuQP("bz4.bmp")!= 0){
             io.print("步骤四 进入登录");
         	buzou4();
         
         }
-        elseif(lwDll.findpic(0, 0, 2000, 2000, "bz5.bmp")=1){
+        elseif(MLzhaotuQP("bz5.bmp")!= 0){
             io.print("步骤五 填写验证码");
         	buzou5();
         
         }
-        elseif(lwDll.findpic(0, 0, 2000, 2000, "yzmcw.bmp")=1){
+        elseif(MLzhaotuQP("yzmcw.bmp")!= 0){
             io.print("验证码错误");
-            lwDll.MoveTo(271,312);
-            lwDll.LeftClick();
+            MLyidongDJ(271,312);
         
         }
-        elseif(lwDll.findpic(0, 0, 2000, 2000, "ydl.bmp")=1 && lwDll.findpic(0, 0, 2000, 2000, "AG.bmp")=0){
+        elseif(MLzhaotuQP("ydl.bmp")!= 0 && MLzhaotuQP("AG.bmp")= 0){
             io.print("已经登陆");
-            lwDll.MoveTo(521,310);
-            lwDll.LeftClick();
+            MLyidongDJ(521,310);
+
         
         }
-        elseif(lwDll.findpic(0, 0, 2000, 2000, "AG.bmp")=1){
+        elseif(MLzhaotuQP("AG.bmp")!= 0){
             io.print("进入AG厅");
-            lwDll.MoveTo(lwDll.x(),lwDll.y());
-            lwDll.LeftClick();
+            MLyidongDJ(521,310);
+            MLzhaotuDJQP("AG.bmp")
             i=0;
         
         }
         win.delay(2000);
         
-        
+        io.print("正在判断循环")
         
         
         

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head>
+<body>
+<div>
+
+
+    <input type="button" value="获取布局" id="huoqu" style="width:100px;"onclick="javascript:HQbuju(0);">
+    <br />
+
+
+</div>
+
+
+
+<script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.dev.js"></script>
+
+
+
+
+</body>
+</html>
+<script src="/aardio.js">
+//aardio <--> chrome 通信接口准备就绪则执行这里的JS脚本
+    	
+    	
+    	aardio.on("hello",function(a){
+			
+			return "chrome中的js被"+a+"并且返回了这个值";
+			
+	    })
+</script>
+
+
+
+
+
+<script>
+var socket = io.connect('http://192.168.111.29:3000');
+socket.emit('IDcsh','aardio');
+var FSxinxi = function(a,b){
+
+
+    socket.emit(a,b);
+
+
+}
+
+
+
+socket.on('KHD-aardio',function(msg){
+    
+    aardio.JSaardio(msg);
+    console.log(msg);
+
+})
+var HQbuju =function(){
+    
+    FSxinxi('yiyuyan',socket.id);
+
+
+
+
+}
+
+
+</script>

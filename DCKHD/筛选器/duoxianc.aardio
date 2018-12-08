@@ -1,0 +1,65 @@
+//6、多线程任务分派
+import console;
+import thread.works;
+import SZdm;
+import io;
+
+var works = thread.works( 20,
+	function(a) {
+		
+		import console;
+		import dxcdm;
+		import io;
+		import com;
+		dm = com.CreateObject("dm.dmsoft");
+		dxcdm.dm=dm;
+		dxcdm.jiekou(a);
+
+;
+		/*io.print(a)
+		dxcdm.jiekou("123")
+		dxcdm.dm=a;
+		io.print(a.ver());*/
+		
+
+		
+		return "返回值,线程ID" + thread.getId();
+	} 
+);
+
+//分派任务
+io.open()
+i=1
+SZdm.jiekou("123");
+while(i=1){
+    
+    str = io.getText();
+    works.push(str) 
+    if(str=="qit"){
+    	i=0
+    }
+    
+    
+}
+
+
+ 
+
+//等待任务完成 
+works.wait(
+	function(r){
+		console.log( "检查成果", r  )
+	} 
+) 
+
+
+
+//退出程序前,等待任务完成并关闭所有线程 
+works.waitClose(
+	function(r){
+		console.log( "检查成果", r  )
+	} 
+) 
+
+
+execute("pause")

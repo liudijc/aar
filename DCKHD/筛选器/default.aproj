@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project ver="10" name="JS大漠" libEmbed="true" icon="..." ui="win" output="aardio工程3.exe" CompanyName="aardio" FileDescription="aardio工程3" LegalCopyright="Copyright (C) aardio 2018" ProductName="aardio工程3" InternalName="aardio工程3" FileVersion="0.0.0.1" ProductVersion="0.0.0.1" publishDir="/Publish/" dstrip="false">
+	<file name="main.aardio" path="main.aardio" comment="main.aardio"/>
+	<folder name="Js渲染进程" path="res" embed="true">
+		<file name="2.aardio" path="res\2.aardio" comment="res\2.aardio"/>
+		<file name="dm.dll" path="res\dm.dll" comment="res\dm.dll"/>
+		<file name="DmReg.dll" path="res\DmReg.dll" comment="res\DmReg.dll"/>
+		<file name="favicon.ico" path="res\favicon.ico" comment="res\favicon.ico"/>
+		<file name="index.aardio" path="res\index.aardio" comment="res\index.aardio"/>
+		<file name="yiyuyanyemian.html" path="res\yiyuyanyemian.html" comment="res\yiyuyanyemian.html"/>
+	</folder>
+	<folder name="筛选器" path="C:\Users\HC\Documents\GitHub\aar\DCKHD\筛选器" embed="true" comment="目录">
+		<file name="duoxianc.aardio" path="筛选器\duoxianc.aardio" comment="筛选器\duoxianc.aardio"/>
+	</folder>
+</project>
