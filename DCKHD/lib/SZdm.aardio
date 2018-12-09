@@ -1,7 +1,6 @@
 ﻿
 namespace SZdm{
-    
-	import io;
+    import io;
 	import raw;
 	import string;
 	import com;
@@ -138,6 +137,66 @@ MLyidongDJ =function(x,y){
 
 
 }
+YXMLyaqian =function(a,b){
+    
+    var YZXkongzhi=a
+    var jine =b ; 
+    while(jine>0){
+        if(jine>=1000){
+            
+            MLzhaotuDJQP("1000.bmp")
+            jine=jine-1000;
+        	
+        }
+        elseif(jine>=500){
+            MLzhaotuDJQP("500.bmp")
+            jine=jine-500;
+            
+        
+        }
+        elseif(jine>=100){
+            MLzhaotuDJQP("100.bmp")
+            jine=jine-100;
+            
+        
+        }
+        elseif(jine>=50){
+            MLzhaotuDJQP("50.bmp")
+            jine=jine-50;
+            
+        
+        }
+        elseif(jine>=10){
+            MLzhaotuDJQP("10.bmp")
+            jine=jine-10;
+            
+        
+        }
+        win.delay(500);
+        if(YZXkongzhi=="YX"){
+            MLzhaotuDJQP("x.bmp")
+        	
+        }
+        elseif(YZXkongzhi=="YZ"){
+            MLzhaotuDJQP("z.bmp")
+        
+        }
+        win.delay(500);
+
+        
+        
+        
+    
+    }
+    
+    MLzhaotuDJQP("qd.bmp")
+        
+    	
+    }
+    
+    
+	
+
 
     
 
@@ -242,17 +301,44 @@ jiekou = function(a){
 
 	
 	}
-	elseif(a="dxc1"){
-		io.print("修改3");
+	elseif(a="GJT"){
+		
+		MLzhaotuDJQP("GJT.bmp");
 
 	
 	}
-	elseif(a="dxc2"){
-		io.print("ss");
-		io.print("2");
+	elseif(a="OZT"){
+		
+		MLzhaotuDJQP("OZT.bmp");
 
 	
 	}
+	elseif(a="QJT"){
+		MLzhaotuDJQP("QJT.bmp");
+
+
+	
+	}
+	elseif(string.startWith(a,"YZ")=true){
+		import string;
+		var substr = string.split(a,'YZ')
+		YXMLyaqian("YZ",substr[3]);
+		
+		io.print(a);
+		
+
+	
+	}
+	elseif(string.startWith(a,"YX")=true){
+		import string;
+		var substr = string.split(a,'YX')
+		YXMLyaqian("YX",substr[3]);
+		io.print(a);
+		
+
+	
+	}
+	
 	
 	
 	
@@ -423,6 +509,10 @@ kaiqijc=function(){
             io.print("进入AG厅");
             MLyidongDJ(521,310);
             MLzhaotuDJQP("AG.bmp")
+        
+        }
+        elseif(MLzhaotuQP("OZT.bmp")!= 0 && MLzhaotuQP("GJT.bmp")!= 0){
+            io.print("已经进入大厅");
             i=0;
         
         }
@@ -444,13 +534,66 @@ kaiqijc=function(){
 }
 
 
+BJJCjiekou =function(a){
+    
+        if(a=="JCzuotai"){
+        var jg = MLzhaotu(0,0,2000,2000,"1bjlb1.bmp|bjlb2.bmp|bjlb3.bmp|bjlb4.bmp|jsbjlb5.bmp|jsbjlb6.bmp","000000",0.9,0);
+        var t = string.split(jg,"|");
+        if(t[1]]=="0"){
+        	return "BJL-B1"; 
+        }
+        elseif(t[1]]=="1"){
+            return "BJL-B2"; 
+        
+        }
+        elseif(t[1]]=="2"){
+            return "BJL-B3"; 
+        
+        }
+        elseif(t[1]]=="3"){
+            return "BJL-B4"; 
+        
+        }
+        elseif(t[1]]=="4"){
+            return "JSBJL-B5"; 
+        
+        }
+        elseif(t[1]]=="5"){
+            return "JSBJL-B6"; 
+        
+        }
+        
+        
+    	
+    }
 
- 
-   }
+        elseif(a=="JCYQzhuangtai"){
+            
+            
+            
+        
+        }
+        
+        
+        
+
+
+
+
+}
 
     
-   
     
+    
+    
+    
+    
+    }
+    
+	
+    
+    
+
 
 
 
