@@ -6,6 +6,7 @@ namespace dm{
 	import com;
 	hwnd=null;
 	Fhwnd=null;
+	dm=null;
 	
 	dmon = function(){
 		
