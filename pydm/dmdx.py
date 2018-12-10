@@ -1,1 +1,2 @@
 global dm
+global hwnd

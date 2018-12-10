@@ -10,6 +10,7 @@ hwnd=dm.FindWindowEx(Fhwnd,"RenderWindow",'')
 dm.SetPicPwd("a123456")
 ck1=dm.BindWindowEx(hwnd,"dx.graphic.opengl","windows","windows","",0)
 dmdx.dm=dm
+dmdx.hwnd=hwnd
 print(ck1)
 
 """

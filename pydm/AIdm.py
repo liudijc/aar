@@ -1,7 +1,7 @@
 import dmdx
 import time
 dm=dmdx.dm
-
+hwnd=dmdx.hwnd
 print(dm.ver())
 
 def MLshizi(x1,y1,x2,y2,color_format,sim):
@@ -22,9 +22,9 @@ def MLzhaotuQP(pic_name):
     jg=dm.FindPicE(0,0,2000,2000,pic_name,"000000",1,0)
     
     if jg == "-1|-1|-1":
-        return 0; 
+        return 0 
     elif num == 0:
-        return jg; 
+        return jg 
 def MLzhaotuDJ(x1, y1, x2, y2, pic_name, delta_color,sim, dir):
     '''
     intX=0
@@ -32,7 +32,7 @@ def MLzhaotuDJ(x1, y1, x2, y2, pic_name, delta_color,sim, dir):
     '''
 
     
-    a=MLzhaotu(x1, y1, x2, y2, pic_name, delta_color,sim, dir)
+    a == MLzhaotu(x1, y1, x2, y2, pic_name, delta_color,sim, dir)
     #print(a)
     
    
@@ -41,7 +41,7 @@ def MLzhaotuDJ(x1, y1, x2, y2, pic_name, delta_color,sim, dir):
     dm.MoveTo(t[1],t[2])
     dm.LeftClick()
 def MLzhaotuDJQP(pic_name):
-    a=MLzhaotu(0,0,2000,2000,pic_name,"000000",1,0)
+    a == MLzhaotu(0,0,2000,2000,pic_name,"000000",1,0)
     #print(a)
     
    
@@ -59,33 +59,33 @@ def YXMLyaqian(a,b):
     while jine>0:
         if jine>=1000:
             
-            MLzhaotuDJQP("1000.bmp")
+            MLzhaotuDJQP("bmp/1000.bmp")
             jine=jine-1000
         elif jine>=500:
-            MLzhaotuDJQP("500.bmp")
+            MLzhaotuDJQP("bmp/500.bmp")
             jine=jine-500
         elif jine>=100:
-            MLzhaotuDJQP("100.bmp")
+            MLzhaotuDJQP("bmp/100.bmp")
             jine=jine-100
         elif jine>=50:
-            MLzhaotuDJQP("50.bmp")
+            MLzhaotuDJQP("bmp/50.bmp")
             jine=jine-50
         elif jine>=10:
-            MLzhaotuDJQP("10.bmp")
+            MLzhaotuDJQP("bmp/10.bmp")
             jine=jine-10
         time.sleep(1)
 
 
         if YZXkongzhi=="YX":
-            MLzhaotuDJQP("x.bmp")
+            MLzhaotuDJQP("bmp/x.bmp")
         elif YZXkongzhi=="YZ":
-            MLzhaotuDJQP("z.bmp")
-        time.sleep(1)
+            MLzhaotuDJQP("bmp/z.bmp")
+        
 
 
     
-    MLzhaotuDJQP("qd.bmp")
-def YXMLshiziZX(a,b):
+    MLzhaotuDJQP("bmp/qd.bmp")
+def YXMLshiziZXT(a,b):
 
 	
 	
@@ -102,13 +102,135 @@ def YXMLshiziZX(a,b):
 	print(weizhi4)
 	print(weizhi5)
 	print(weizhi6)
+def jiekou(a):
 
-
-
-
- 
-  
     
+
+    
+    
+    if a == "BDck":
+	    #test()
+        print(BDSzk)
+    elif a == 'BDSzk':
+        print(dm.SetDict(0,"res\dm_soft.txt"))
+    elif a == "123":
+		#test()
+        print(dm.SetDict(0,"res\dm_soft.txt"))
+    elif a == "SZ": 
+        #shizi()
+        print("2")
+    elif a == "bz1":
+        buzou1()
+    elif a == "bz2":
+        buzou2()
+    elif a == "bz3":
+        buzou3()
+    elif a == "bz4":
+        buzou4()
+    elif a == "bz5":
+        buzou5()
+    elif a == "bzall":
+        buzou1()
+        time.sleep(2)
+        buzou2()
+        time.sleep(2)
+        buzou3()
+        time.sleep(2)
+        buzou4()
+        time.sleep(2)
+        buzou5()
+    elif a == "kaiqijc":
+        kaiqijc()
+    elif a == "GJT":
+        MLzhaotuDJQP("bmp/GJT.bmp")
+    elif a == "OZT":
+        MLzhaotuDJQP("bmp/OZT.bmp")
+    elif a == "QJT":
+        MLzhaotuDJQP("bmp/QJT.bmp")
+    elif a.find("YZ") != -1:
+
+
+        t = a.split('YZ')
+
+        YXMLyaqian("YZ", t[1])
+
+        print(a)
+    elif a.find("YX") != -1:
+        t = a.split('YX')
+        YXMLyaqian("YX", t[1])
+        print(a)
+		
+
+#步骤区域
+def buzou1():
+    MLzhaotuDJQP("bmp/vialiulanqi.bmp")
+def buzou2():
+    MLzhaotuDJQP("bmp/DC.bmp")
+def buzou3():
+    MLzhaotuDJQP("bmp/denglu.bmp")
+def buzou4():
+    MLyidongDJ(161,425)
+    time.sleep(1) 
+    dm.SendString(hwnd,"liudijkk") 
+    time.sleep(1) 
+    #密码
+    MLyidongDJ(145,484)
+    dm.SendString(hwnd,"hcy365") 
+def buzou5():
+    from aip import AipOcr
+    #pip install baidu-aip  C:\Python34\Scripts处执行
+    """ 你的 APPID AK SK """
+    APP_ID = '11162073'
+    API_KEY = 'lhs6TtdPPDZNzjFRNRzL1LCG'
+    SECRET_KEY = 'GlytSOQz4sCIinzlr2IUn5RTHsCj6nX4'
+    dm.Capture(332,539,409,576,"bmp/screen.bmp")
+    client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
+    """ 调用通用文字识别, 图片为远程url图片 """#res=client.basicGeneralUrl(url);
+    """ 调用通用文字识别, 图片为本地图片 """
+    '''
+    filePath = "bmp/screen.bmp"
+    res = client.general('bmp/screen.bmp')
+    print(res.words_result[1].words)
+    MLyidongDJ(157,554)
+    time.sleep(1) 
+    dm.SendString(hwnd,res.words_result[1].words)
+    time.sleep(1) 
+
+
+
+    MLzhaotuDJQP("bmp/bz5-denglu.bmp")
+    '''
+    # 读取图片
+    filePath = "bmp/screen.bmp"
+    def get_file_content(filePath):
+        with open(filePath, 'rb') as fp:
+            return fp.read()
+
+
+    # 定义参数变量
+    options = {
+        'detect_direction': 'true',
+        'language_type': 'CHN_ENG',
+    }
+
+    #调用通用文字识别接口
+    result = client.basicAccurate(get_file_content(filePath), options)
+    print(result['words_result'][0]['words'])
+    '''
+
+    a={'words_result': [{'words': '1987'}], 'direction': 0, 'log_id': 2586040403978915370, 'words_result_num': 1}
+    '''
+    
+
+
+
+    
+    
+
+
+
+
+
    
 
     
