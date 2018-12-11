@@ -20,7 +20,7 @@ def MLzhaotu(x1, y1, x2, y2, pic_name, delta_color,sim, dir1):
     return jg
 def MLzhaotuQP(pic_name):
     
-    jg=dm.FindPicE(0,0,2000,2000,pic_name,"000000",1,0)
+    jg=dm.FindPicE(0,0,2000,2000,pic_name,"000000",0.8,0)
     
     if jg == "-1|-1|-1":
         return 0 
@@ -105,10 +105,6 @@ def YXMLshiziZXT(a,b):
 	print(weizhi6)
 def jiekou(a):
 
-    
-
-    
-    
     if a == "BDck":
 	    #test()
         print(BDSzk)
@@ -160,7 +156,6 @@ def jiekou(a):
         t = a.split('YX')
         YXMLyaqian("YX", t[1])
         print(a)
-		
 
 #步骤区域
 def buzou1():
@@ -256,7 +251,10 @@ def kaiqijc():
             MLyidongDJ(521,310)
             time.sleep(5) 
             MLzhaotuDJQP("bmp/AG.bmp")
-        elif MLzhaotuQP("bmp/OZT.bmp")!= 0 and MLzhaotuQP("bmp/GJT.bmp")!= 0:
+        elif MLzhaotuQP("bmp/cg5fz.bmp")!= 0:
+            print("超过5分钟")
+            MLzhaotuDJQP("bmp/cg5fz-qd.bmp")
+        elif MLzhaotuQP("bmp/ozt.bmp")!= 0 and MLzhaotuQP("bmp/gjt.bmp")!= 0:
             print("已经进入大厅")
             kaiqijc__i=0
         time.sleep(2) 
@@ -266,7 +264,26 @@ def kaiqijc():
             name = input('继续请按1 停止请按NO\n')
             if name == 'NO':
                 kaiqijc__i=0
+            else:
+                i=0
 
+#已经进入大厅  实行控制区域
+def jinruQJT():
+    MLzhaotuDJQP("bmp/qjt.bmp")
+def jinruOZT():
+    MLzhaotuDJQP("bmp/ozt.bmp")
+def jinruGJT():
+    MLzhaotuDJQP("bmp/gjt.bmp")
 
+def YXN_sbzt():#识别ZUO台
 
+    A=MLshizi(56,96,233,148,"d6af8e-606060",0.9)
+    print(A)
+def YXN_sbzjs():#识别总J数
+
+    Z=MLshizi(17,647,59,682,"fffefe-808080",0.8)
+    X=MLshizi(72,645,108,682,"fffefe-808080",0.8)
+    H=MLshizi(7125,644,160,684,"fffefe-808080",0.8)
+    #ZS=Z+X+H
+    print(Z,X,H)
 
