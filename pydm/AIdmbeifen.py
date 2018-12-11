@@ -1,7 +1,7 @@
 import dmdx
 import time
-dm=dmdx.dm
-hwnd=dmdx.hwnd
+dm=a1dmbl.dm
+hwnd=a1dmbl.hwnd
 print(dm.ver())
 
 def MLshizi(x1,y1,x2,y2,color_format,sim):
@@ -9,11 +9,11 @@ def MLshizi(x1,y1,x2,y2,color_format,sim):
     jg=dm.Ocr(x1,y1,x2,y2,color_format,sim)
     print(jg)
     return jg
-def MLzhaotu(x1, y1, x2, y2, pic_name, delta_color,sim, dir):
-    #jg=dm.FindPic(x1, y1, x2, y2, pic_name, delta_color,sim, dir,intX, intY)
+def MLzhaotu(x1, y1, x2, y2, pic_name, delta_color,sim, dir1):
+    #jg=dm.FindPic(x1, y1, x2, y2, pic_name, delta_color,sim, dir1,intX, intY)
 
 
-    jg=dm.FindPicE(x1, y1, x2, y2, pic_name, delta_color,sim, dir)
+    jg=dm.FindPicE(x1, y1, x2, y2, pic_name, delta_color,sim, dir1)
     
     
     return jg
@@ -23,16 +23,16 @@ def MLzhaotuQP(pic_name):
     
     if jg == "-1|-1|-1":
         return 0 
-    elif num == 0:
+    else:
         return jg 
-def MLzhaotuDJ(x1, y1, x2, y2, pic_name, delta_color,sim, dir):
+def MLzhaotuDJ(x1, y1, x2, y2, pic_name, delta_color,sim, dir1):
     '''
     intX=0
     intY=1
     '''
 
     
-    a == MLzhaotu(x1, y1, x2, y2, pic_name, delta_color,sim, dir)
+    a = MLzhaotu(x1, y1, x2, y2, pic_name, delta_color,sim, dir1)
     #print(a)
     
    
@@ -41,7 +41,7 @@ def MLzhaotuDJ(x1, y1, x2, y2, pic_name, delta_color,sim, dir):
     dm.MoveTo(t[1],t[2])
     dm.LeftClick()
 def MLzhaotuDJQP(pic_name):
-    a == MLzhaotu(0,0,2000,2000,pic_name,"000000",1,0)
+    a = MLzhaotu(0,0,2000,2000,pic_name,"000000",1,0)
     #print(a)
     
    
@@ -172,11 +172,13 @@ def buzou4():
     MLyidongDJ(161,425)
     time.sleep(1) 
     dm.SendString(hwnd,"liudijkk") 
-    time.sleep(1) 
+    time.sleep(2) 
     #密码
-    MLyidongDJ(145,484)
+    MLyidongDJ(125,488)
+    time.sleep(1) 
     dm.SendString(hwnd,"hcy365") 
 def buzou5():
+
     from aip import AipOcr
     #pip install baidu-aip  C:\Python34\Scripts处执行
     """ 你的 APPID AK SK """
@@ -195,9 +197,6 @@ def buzou5():
     time.sleep(1) 
     dm.SendString(hwnd,res.words_result[1].words)
     time.sleep(1) 
-
-
-
     MLzhaotuDJQP("bmp/bz5-denglu.bmp")
     '''
     # 读取图片
@@ -216,44 +215,46 @@ def buzou5():
     #调用通用文字识别接口
     result = client.basicAccurate(get_file_content(filePath), options)
     print(result['words_result'][0]['words'])
+    MLyidongDJ(157,554)
+    time.sleep(1) 
+    dm.SendString(hwnd,result['words_result'][0]['words'])
+    MLzhaotuDJQP("bmp/bz5-denglu.bmp")
     '''
-
     a={'words_result': [{'words': '1987'}], 'direction': 0, 'log_id': 2586040403978915370, 'words_result_num': 1}
     '''
-    
-
-
-
-    
-    
-
-
-
-
-
-   
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-
-    
-    
-
-
-
-
-
-
-
-
+def kaiqijc():
+    i=1
+    while (i == 1) :
+        if MLzhaotuQP("bmp/vialiulanqi.bmp")!= 0:
+        	print("步骤一  浏览器")
+        	buzou1()
+        elif MLzhaotuQP("bmp/DC.bmp")!= 0:
+            print("步骤二  打开标签")
+            buzou2()
+        elif MLzhaotuQP("bmp/jg.bmp")!= 0:
+            print("确认警告")
+            MLzhaotuDJQP("bmp/bz3queding.bmp")
+        elif MLzhaotuQP("bmp/denglu.bmp")!= 0:
+            print("步骤三 点击登录")
+            buzou3()
+        elif MLzhaotuQP("bmp/bz4.bmp")!= 0:
+            print("步骤四 进入登录")
+            buzou4()
+        elif MLzhaotuQP("bmp/bz5.bmp")!= 0:
+            print("步骤五 填写验证码")
+            buzou5()
+        elif MLzhaotuQP("bmp/yzmcw.bmp")!= 0:
+            print("验证码错误")
+            MLyidongDJ(271,312)
+        elif MLzhaotuQP("bmp/ydl.bmp") != 0 and MLzhaotuQP("bmp/AG.bmp") == 0:
+            print("已经登陆")
+            MLyidongDJ(521,310)
+        elif MLzhaotuQP("bmp/AG.bmp")!= 0:
+            print("进入AG厅")
+            MLyidongDJ(521,310)
+            MLzhaotuDJQP("bmp/AG.bmp")
+        elif MLzhaotuQP("bmp/OZT.bmp")!= 0 and MLzhaotuQP("bmp/GJT.bmp")!= 0:
+            print("已经进入大厅")
+            i=0
+        time.sleep(2) 
+        print("正在判断循环")

@@ -9,7 +9,7 @@
 		<file name="index.aardio" path="res\index.aardio" comment="res\index.aardio"/>
 		<file name="yiyuyanyemian.html" path="res\yiyuyanyemian.html" comment="res\yiyuyanyemian.html"/>
 	</folder>
-	<folder name="筛选器" path="C:\Users\HC\Documents\GitHub\aar\DCKHD\筛选器" embed="true" comment="目录">
+	<folder name="筛选器" path="筛选器" embed="true" comment="目录">
 		<file name="python.aardio" path="筛选器\python.aardio" comment="筛选器\python.aardio"/>
 		<file name="ceshi.aardio" path="ceshi.aardio" comment="ceshi.aardio"/>
 	</folder>

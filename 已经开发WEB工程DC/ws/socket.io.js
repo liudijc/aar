@@ -36,6 +36,7 @@ io.on('connection', (socket) => {
         io.emit('receiveImg', data);
     })
     */
+   console.log(socket);
 
 
    socket.on('sendMessage', (data) => {
@@ -134,6 +135,7 @@ socket.on('sendImg', (data) => {
     socket.on('JS-aardio', function(data) {
         aardio=socket.id;
         //io.to(aardio).emit('KHD-aardio',data);
+        console.log(data);
 
 
 

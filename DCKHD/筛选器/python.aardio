@@ -15,7 +15,7 @@ def get_names(a):
 
 string.save("/name.py",pyCode );//创建一个创建的模块文件
 var name = py.import("name");
-
+console.log(name);
 var tab = name.get_names(5)
 console.log(tab);
 
