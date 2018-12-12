@@ -6,7 +6,7 @@ import sys
 
 context = zmq.Context()
 socket = context.socket(zmq.REQ)
-socket.connect("tcp://localhost:5559")
+socket.connect("tcp://localhost:50")
 
 while(True):
     data = input("input your data:")
