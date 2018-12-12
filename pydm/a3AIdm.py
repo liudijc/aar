@@ -240,7 +240,7 @@ def kaiqijc():
         elif MLzhaotuQP("bmp/bz5.bmp")!= 0:
             print("步骤五 填写验证码")
             buzou5()
-        elif MLzhaotuQP("bmp/yzmcw.bmp")!= 0:
+        elif MLzhaotuQP("bmp/yzmcw.bmp")!= 0 or MLzhaotuQP("bmp/yzmcw_1.bmp")!= 0:
             print("验证码错误")
             MLyidongDJ(271,312)
         elif MLzhaotuQP("bmp/ydl.bmp") != 0 and MLzhaotuQP("bmp/AG.bmp") == 0:
@@ -253,7 +253,8 @@ def kaiqijc():
             MLzhaotuDJQP("bmp/AG.bmp")
         elif MLzhaotuQP("bmp/cg5fz.bmp")!= 0:
             print("超过5分钟")
-            MLzhaotuDJQP("bmp/cg5fz-qd.bmp")
+            MLyidongDJ(237,535)
+            #MLzhaotuDJQP("bmp/cg5fz-qd.bmp")
         elif MLzhaotuQP("bmp/ozt.bmp")!= 0 and MLzhaotuQP("bmp/gjt.bmp")!= 0:
             print("已经进入大厅")
             kaiqijc__i=0
@@ -283,7 +284,7 @@ def YXN_sbzjs():#识别总J数
 
     Z=MLshizi(17,647,59,682,"fffefe-808080",0.8)
     X=MLshizi(72,645,108,682,"fffefe-808080",0.8)
-    H=MLshizi(7125,644,160,684,"fffefe-808080",0.8)
+    H=MLshizi(125,644,160,684,"fffefe-808080",0.8)
     #ZS=Z+X+H
     print(Z,X,H)
 

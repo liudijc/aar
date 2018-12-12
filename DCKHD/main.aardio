@@ -1,21 +1,26 @@
 
 import chrome.app;
 var app = chrome.app();
-import io;
+import thread.works;
+
+var works = thread.works( 20,
+	function(...) {
+		import zmq;
+		
+
+		
+		return "返回值,线程ID" + thread.getId();
+	} ,obj
+);
+
+//分派任务
+//works.push("一个任务") 
 
 
 
-io.open(); //打开控制台窗口
+
+
 //chrome.app.path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
-
-//中国.北京.报告气象()
-
-
-
-
-
-
-
 
 
 /*
@@ -47,6 +52,8 @@ app.external = {
     JSaardio = function(a){
        app.msgbox(a)
     } 
+    works.push("一个任务") 
+
 }
 
 //WebSocke/RPC中遇到的错误都会触发这个函数,可以在这里自定义错误处理方式
@@ -62,53 +69,10 @@ app.start("/res/2.aardio");
 
 //网页中可以调用 aardio.quit() 退出,也可以直接关闭chrome窗口退出
 
-doSomething = function(){
-    
-    
-
-    var i=1;
-    //SZdm.test();
-    //io.print(lw.hwnd);
-    
-while(i=1){
-str = io.getText();
- //io.print(str);
- if(str=="newall"){
- 	import lw;
- }
- else {
-     import SZdm;
-     //import SZdm;
- SZdm.jiekou(str);
- }
- 
-
- 
-}
-
-
-
-}
-    
 
 
 
 
-thread.invoke(doSomething)
-
-
-
-
-
- 
-
-
-
-
-
-
-
-//io.print(中国.北京.天气);
 
 
 
