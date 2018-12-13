@@ -1,0 +1,22 @@
+import console;
+import py;
+
+var pyCode = /**
+import random
+
+def get_names(a):
+    try:
+        list = [1, 2, 3,4,5,6,7,8,9]
+        c = random.sample(list,int(a) )
+        return c
+    except Exception as e:
+        return e; 
+**/
+
+string.save("/name.py",pyCode );//创建一个创建的模块文件
+var name = py.import("name");
+
+var tab = name.get_names(5)
+console.log(tab);
+
+console.pause();

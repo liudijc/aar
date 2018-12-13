@@ -1,0 +1,354 @@
+﻿
+namespace lw{
+    
+    var comx;
+hwnd=null;
+import win.ui;
+
+//
+
+registerLwDll = function(path ){
+    import com.lite;
+    comx = com.lite("\lw.dll");
+    comx.registerServer();
+
+    var instance = comx.createInstance("{F6C2EA3D-2A5A-4B63-AFDB-5E24BD1D39A0}");
+    lwDll = com.QueryObject(instance)
+    return lwDll; 
+}
+    
+unregisterLwDll = function(){
+    if(comx){
+        comx.unregisterServer();
+    }
+}
+
+test = function(){
+    lwdll = registerLwDll();
+    import io;
+    import com;
+    io.open();
+    hwnd=lwDll.FindWindow("雷电模拟器","")
+    hwnd=lwDll.FindWindow("TheRender", , , , hwnd, , , , , , , )
+    io.print(hwnd);
+    //var functions = com.DumpTypeInfo(lwdll)
+    //io.print(com.DumpTypeInfo(lwDll))
+    //io.print(lwDll.ver());
+    //io.print(lwDll.getNetIp());
+    //io.print(hwnd);
+    
+}
+
+jietu = function(){
+	var weizhi1
+	var weizhi2
+	var weizhi3
+	var weizhi4
+	var weizhi5
+	var weizhi6
+	weizhi1=lwDll.Ocr (2,717,38,910, "DF1316-202020|3735F3-202020|20A10D-111111", 0.7,'\n', , );
+	weizhi2=lwDll.Ocr (33,720,73,909, "DF1316-202020|3735F3-202020|20A10D-111111", 0.7, '\n', , );
+	weizhi3=lwDll.Ocr (63,719,99,906, "DF1316-202020|3735F3-202020|20A10D-111111", 0.7, '\n', , );
+	weizhi4=lwDll.Ocr (91,717,128,911, "DF1316-202020|3735F3-202020|20A10D-111111", 0.7, '\n', , );
+	weizhi5=lwDll.Ocr (120,716,159,912, "DF1316-202020|3735F3-202020|20A10D-111111", 0.7, '\n', , );
+	weizhi6=lwDll.Ocr (147,718,188,911, "DF1316-202020|3735F3-202020|20A10D-111111", 0.7, '\n', , );
+	io.print(weizhi1);
+	io.print(weizhi2);
+	io.print(weizhi3);
+	io.print(weizhi4);
+	io.print(weizhi5);
+	io.print(weizhi6);
+	
+	
+}
+
+jiekou = function(a){
+	if(a="BDht"){
+		io.print(lwDll.BindWindow(hwnd, 5, 2, 2, , 0));
+		
+		
+		
+	}
+	elseif(a="BDzk"){
+		io.print(lwDll.SetDict(0,"F:\BaiduNetdiskDownload\20181120字库.txt"));
+		
+	
+	}
+	elseif(a="123"){
+		io.print(lwDll.BindWindow(hwnd, 5, 1, 1, , 0));
+		lwDll.OpenViolentRedraw(1);
+		lwDll.OpenSynscreenshot(1);
+		io.print(lwDll.SetDict(0,"F:\BaiduNetdiskDownload\20181120字库.txt"));
+		
+	
+	}
+	elseif(a="ST"){
+		
+		jietu();
+	
+	}
+	elseif(a="bz1"){
+		
+		buzou1();
+	
+	}
+	elseif(a="bz2"){
+		
+		buzou2();
+	
+	}
+	elseif(a="bz3"){
+		
+		buzou3();
+	
+	}
+	elseif(a="bz4"){
+		
+		buzou4();
+	
+	}
+	elseif(a="bz5"){
+		
+		buzou5();
+	
+	}
+	elseif(a="bzall"){
+		import win.ui;
+		buzou1();
+		win.delay(2000) 
+		buzou2();
+		win.delay(2000) 
+		buzou3();
+		win.delay(2000) 
+		buzou4();
+		win.delay(2000) 
+		buzou5();
+	
+	}
+	elseif(a="kaiqijc"){
+		kaiqijc();
+
+	
+	}
+	
+	
+	
+	//io.print(a);
+	
+}
+buzou1=function(){
+    
+    io.print(lwDll.findpic(0, 0, 2000, 2000, "vialiulanqi.bmp"))
+    io.print(lwDll.x(),lwDll.y(),lwDll.idx());
+    
+    lwDll.MoveTo(lwDll.x()+15,lwDll.y()+15);
+    lwDll.LeftClick();
+    
+    //lw.y(),lw.idx()
+     ///打开浏览器图片识别VIA
+    
+    
+   	
+   }
+buzou2=function(){
+    
+    io.print(lwDll.findpic(0, 0, 2000, 2000, "DC.bmp"))
+    io.print(lwDll.x(),lwDll.y(),lwDll.idx());
+    
+    lwDll.MoveTo(lwDll.x(),lwDll.y());
+    lwDll.LeftClick();
+    /*
+    var i=lwDll.findpic(0, 0, 2000, 2000, "jg.bmp");
+    
+    while(i=1){
+    
+ //io.print(str);
+     lwDll.MoveTo(398,500);//警告确认
+    lwDll.LeftClick();
+    */
+ 
+
+
+ 
+ 
+ 
+}
+    
+
+
+buzou3=function(){
+    
+    
+    io.print(lwDll.findpic(0, 0, 2000, 2000, "denglu.bmp"))
+    io.print(lwDll.x(),lwDll.y(),lwDll.idx());
+    
+    lwDll.MoveTo(lwDll.x(),lwDll.y());
+    lwDll.LeftClick();
+    
+
+
+    
+    //lw.y(),lw.idx()
+     ///点击登录
+    
+    
+   	
+   }
+buzou4=function(){
+
+
+    //账号
+   lwDll.MoveTo(161,425);
+   lwDll.LeftClick();
+   lwDll.KeyPressStr("liudijkk",1000);
+   win.delay(1000) 
+   //密码
+   lwDll.MoveTo(145,484);
+   lwDll.LeftClick();
+   lwDll.KeyPressStr("hcy365",1000);
+   win.delay(1000) 
+   
+
+   /*
+   var piclen= lwDll.Capture(330,436,387,467,1);
+   var code= lwDll.GetCode_Cr_Buffer ("liudijc","a123456",lwDll.x(),piclen,"0");
+   io.print(code);
+   lwDll.KeyPressStr(code,200);
+   */
+
+
+
+
+
+
+
+
+
+
+}
+    
+buzou5=function(){
+//验证码
+import baidu.client;
+import win.ui;
+var http = baidu.client(); 
+lwDll.Capture(332,539,409,576,"screen.bmp");
+win.delay(1000) 
+
+http.setAuth("23.45b2cebc2acf702947f6b7a05ca3d75d.2592000.1546404657.1195355902-11162073")
+//OCR识别接口
+var ocr = http.api("https://aip.baidubce.com/rest/2.0/ocr/v1/");
+var result = ocr.general_basic( 
+image = "screen.bmp";
+)
+
+io.print(result.words_result[1].words);
+lwDll.MoveTo(157,554);
+lwDll.LeftClick();
+win.delay(1000) 
+lwDll.KeyPressStr(result.words_result[1].words,200);
+lwDll.MoveTo(277,624);
+lwDll.LeftClick();
+   
+
+
+
+
+
+
+
+
+
+
+}
+
+
+kaiqijc=function(){
+    var i=1;
+    while(i=1){
+        
+        if(lwDll.findpic(0, 0, 2000, 2000, "vialiulanqi.bmp")=1){
+        	io.print("步骤一  浏览器");
+        	buzou1();
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "DC.bmp")=1){
+            io.print("步骤二  打开标签");
+        	buzou2();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "jg.bmp")=1){
+        io.print("确认警告");
+        io.print(lwDll.findpic(0, 0, 2000, 2000, "bz3queding.bmp"))
+        lwDll.MoveTo(lwDll.x()+6,lwDll.y()+6);
+        lwDll.LeftClick();
+            
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "denglu.bmp")=1){
+            io.print("步骤三 点击登录");
+        	buzou3();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "bz4.bmp")=1){
+            io.print("步骤四 进入登录");
+        	buzou4();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "bz5.bmp")=1){
+            io.print("步骤五 填写验证码");
+        	buzou5();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "yzmcw.bmp")=1){
+            io.print("验证码错误");
+            lwDll.MoveTo(271,312);
+            lwDll.LeftClick();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "ydl.bmp")=1 && lwDll.findpic(0, 0, 2000, 2000, "AG.bmp")=0){
+            io.print("已经登陆");
+            lwDll.MoveTo(521,310);
+            lwDll.LeftClick();
+        
+        }
+        elseif(lwDll.findpic(0, 0, 2000, 2000, "AG.bmp")=1){
+            io.print("进入AG厅");
+            lwDll.MoveTo(lwDll.x(),lwDll.y());
+            lwDll.LeftClick();
+            i=0;
+        
+        }
+        win.delay(2000);
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    }
+    
+    
+    
+	
+}
+
+   	
+   }
+
+    
+   
+    
+
+
+
+
+
+
+
+	
+
+
+
