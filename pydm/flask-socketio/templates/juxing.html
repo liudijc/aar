@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+</head>
+<body>
+<div style="width:400px; height:300px; overflow:auto">
+<canvas id="myCanvas" width="680" height="300"></canvas>
+</div>
+<div>
+
+
+    <input type="button" value="获取布局" id="huoqu" style="width:100px;"onclick="javascript:HQbuju(0);">
+    <br />
+    <br />
+    <input type="button"  value="10" id="JE1" style="width:60px; height:60px;" onclick="javascript:TJjine(10);" >
+    <input type="button" value="50" id="JE2" style="width:60px; height:60px;"onclick="javascript:TJjine(50);"> 
+    <input type="button" value="100" id="JE3" style="width:60px; height:60px;"onclick="javascript:TJjine(100);">
+    <input type="button" value="200" id="JE4" style="width:60px; height:60px;"onclick="javascript:TJjine(200);">
+    <input type="button" value="清空" id="JE0" style="width:60px; height:60px;"onclick="javascript:TJjine(0);">
+    <br />
+    <br />
+    <h1>0</h1>
+    <h2>--------------------0</h2>
+    <br />
+    <br />
+    
+    <input type="button" value="Z" id="YZ" style="width:100px; height:100px;"onclick="javascript:TJquerenjine('Z');">
+    <input type="button" value="X" id="YX" style="width:100px; height:100px;"onclick="javascript:TJquerenjine('X');">
+
+    <h3>0</h3>
+
+</div>
+
+
+<script src="xianshi.js" type="text/javascript"></script>
+<script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.dev.js"></script>
+<script src="KHDsocket.js"></script>
+
+
+
+
+
+<script>
+///////////金额代码
+
+var yajin=null;//押金
+var ZONGjine=null;//总金额
+var querenyajin=null;//确认押金
+var TJjine = function(a){//添加金额到押金
+    if(a == 0){
+        yajin = 0;
+        
+    }else{
+        yajin = yajin + a;
+        
+
+    }
+    var h1= document.getElementsByTagName("h1")[0];
+    h1.innerHTML = yajin;
+
+
+
+
+    
+
+    
+};
+var TJquerenjine = function(a){
+    querenyajin=yajin;
+    var h3= document.getElementsByTagName("h3")[0];
+    h3.innerHTML = a+"="+querenyajin;
+
+
+    //确认金额
+    //FSquerenjine(a+"="+querenyajin);
+    FSxinxi("QRjine",a+","+querenyajin);
+    
+    console.log(querenyajin);
+    console.log(200);
+    CEshi222(querenyajin);
+    var asd66=null;
+    console.log(asd66);
+    
+
+
+
+
+
+}
+
+var HQbuju = function(a){
+    
+    FSxinxi("buju","huoqubuju");
+   
+    //huoqubuju();
+    //FSxinxi("huoqubuju");
+
+
+}
+FSxinxi("wangye","wangye");
+
+///////////结束金额代码
+
+
+
+//////////////SAN框架
+/*
+var MyApp = san.defineComponent({
+    template: ''
+        + '<div>'
+        +   '<input value="{= name =}" placeholder="please input">'
+        +   'Hello {{name}}!'
+        + '</div>'
+});
+
+var myApp = new MyApp();
+myApp.attach(ducument.getElementById("id2"));
+*/
+
+
+/////////////框架
+///////CANVAS画板声明
+var canvas = document.getElementById("myCanvas"); 　　
+var context = canvas.getContext("2d"); 
+///////CANVAS画板声明
+/*
+for (var i=1;i<25;i++)
+{
+    tiaojie(i,Xyanse);
+
+
+
+
+}
+
+for (var i=1;i<25;i++)
+{
+    tiaojie(i,Zyanse);
+}
+*/
+
+
+</script>
+<style type="text/css">
+
+
+    h1 {font-size: 30px;color: #EE00EE; display : inline}
+    h2 {font-size: 30px;color: #FF0000; display : inline}
+    h3 {font-size: 30px;color: #FF0000; display : inline}
+    h4 {font-size: 30px;color: #FF0000; display : inline}
+    
+    </style>
+</body>
+</html>
