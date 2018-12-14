@@ -14,7 +14,13 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
-
+def JSbuju(__id,ZJE,DJLZ):
+    danjuLZ=DJLZ.split(",")
+    socketio.emit('KHD-buju','pybj',namespace='/test')
+    for letter in danjuLZ:     # 第一个实例
+        print('当前字母 :', letter,__id)
+        socketio.emit('KHD-ZX',letter,namespace=__id)
+    socketio.emit('KHD-ZONGjine',ZJE,namespace=__id)
 '''
 def background_thread():
     """Example of how to send server generated events to clients."""
@@ -22,11 +28,9 @@ def background_thread():
     while True:
         socketio.sleep(10)
         count += 1
-        socketio.emit('my_response',
-                      {'data': 'Server generated event', 'count': count},
-                      namespace='/test')
-'''
-'''
+        socketio.emit('KHD-ZONGjine','10',namespace='/test')
+
+
 @app.route('/')
 def index():
     return render_template('index.html', async_mode=socketio.async_mode)
@@ -34,82 +38,43 @@ def index():
 
 @socketio.on('my_event', namespace='/test')
 def test_message(message):
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('my_response',
-         {'data': message['data'], 'count': session['receive_count']})
+    print("进入message")
+    
+    #socketio.emit('KHD-ZX','Z10',namespace='/test')
+    #socketio.emit('KHD-ZONGjine','10',namespace='/test')
+   
+@socketio.on('WY_QRjine', namespace='/test')
+def test_WY_QRjine(message):
+    print(message)
+    
+    #socketio.emit('KHD-ZX','Z10',namespace='/test')
+    #socketio.emit('KHD-ZONGjine','10',namespace='/test')
+   
 
 
-@socketio.on('my_broadcast_event', namespace='/test')
-def test_broadcast_message(message):
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('my_response',
-         {'data': message['data'], 'count': session['receive_count']},
-         broadcast=True)
 
-
-@socketio.on('join', namespace='/test')
-def join(message):
-    join_room(message['room'])
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('my_response',
-         {'data': 'In rooms: ' + ', '.join(rooms()),
-          'count': session['receive_count']})
-
-
-@socketio.on('leave', namespace='/test')
-def leave(message):
-    leave_room(message['room'])
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('my_response',
-         {'data': 'In rooms: ' + ', '.join(rooms()),
-          'count': session['receive_count']})
-
-
-@socketio.on('close_room', namespace='/test')
-def close(message):
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('my_response', {'data': 'Room ' + message['room'] + ' is closing.',
-                         'count': session['receive_count']},
-         room=message['room'])
-    close_room(message['room'])
-
-
-@socketio.on('my_room_event', namespace='/test')
-def send_room_message(message):
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('my_response',
-         {'data': message['data'], 'count': session['receive_count']},
-         room=message['room'])
-
-
-@socketio.on('disconnect_request', namespace='/test')
-def disconnect_request():
-    session['receive_count'] = session.get('receive_count', 0) + 1
-    emit('my_response',
-         {'data': 'Disconnected!', 'count': session['receive_count']})
-    disconnect()
-
-
-@socketio.on('my_ping', namespace='/test')
-def ping_pong():
-    emit('my_pong')
-
-
-@socketio.on('connect', namespace='/test')
+@socketio.on('connect', namespace='/test')#链接时触发
 def test_connect():
-    global thread
+    #global thread
+    print("触发了")
+    __id='/test'
+    DJLZ="Z10,X8,Z6,X16,Z18,X12"
+    ZJE="30"
+    JSbuju(__id,ZJE,DJLZ)
+    #socketio.emit('KHD-buju','Z10',namespace='/test')
     '''
     with thread_lock:
         if thread is None:
             thread = socketio.start_background_task(background_thread)
     '''
-    emit('my_response', {'data': 'Connected', 'count': 0})
+    #emit('my_response', {'data': 'Connected', 'count': 0})
 
 
-@socketio.on('disconnect', namespace='/test')
-def test_disconnect():
-    print('Client disconnected', request.sid)
+
+
+
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    #socketio.run(app, debug=True)
+    socketio.run(app,debug=True,host='192.168.111.29',port=5000)
