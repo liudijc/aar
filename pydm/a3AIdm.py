@@ -139,24 +139,51 @@ def YXN_sbzjsT():#识别总J数
     #ZS=Z+X+H
     print_zjst(Z+X+H)
     print(Z,X,H)
-def YXN_shiziZXT(a,b):#识别ZX图
+def YXN_shiziZXT():#识别ZX图
+    kaiqijc__i=1
+    i=0
 
-    weizhi1=MLshizi(2,717,38,910, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8)
-    weizhi2=MLshizi(33,720,73,909, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8)
-    weizhi3=MLshizi(63,719,99,906, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8)
-    weizhi4=MLshizi(91,717,128,911, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8)
-    weizhi5=MLshizi(120,716,159,912, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8)
-    weizhi6=MLshizi(147,718,188,911, "df1316-202020|3735f3-202020|20a10d-202020,"+'\n',0.8)
-    zxall = '%s%s%s' % (weizhi1, weizhi2, weizhi3,weizhi4,weizhi5,weizhi6)
-    #zxall = weizhi1 + weizhi2 + weizhi3 + weizhi4 + weizhi5 + weizhi6
-    print_zxt(zxall)
-    print(weizhi1)
-    print(weizhi2)
-    print(weizhi3)
-    print(weizhi4)
-    print(weizhi5)
-    print(weizhi6)
-    print(zxall)
+    while (kaiqijc__i == 1) :
+            dm.SetDict(0,"C:/Users/Administrator/Desktop/bmp/bmp/zxt.txt")
+            weizhi1=MLshizi(2,717,38,910, "#216-40,"+'\n',0.8)
+            weizhi2=MLshizi(33,720,73,909, "#216-40,"+'\n',0.8)
+            weizhi3=MLshizi(63,719,99,906, "#216-40,"+'\n',0.8)
+            weizhi4=MLshizi(91,717,128,911, "#216-40,"+'\n',0.8)
+            weizhi5=MLshizi(120,716,159,912, "#216-40,"+'\n',0.8)
+            weizhi6=MLshizi(147,718,188,911, "#216-40,"+'\n',0.8)
+            zxall = weizhi1+'\n'+weizhi2+'\n'+weizhi3+'\n'+weizhi4+'\n'+weizhi5+'\n'+weizhi6+'\n'+"KO"
+
+
+            astr=zxall.split('\n')
+            for x in astr:
+                print(x)
+
+
+
+
+
+            #zxall = weizhi1 + weizhi2 + weizhi3 + weizhi4 + weizhi5 + weizhi6
+            print_zxt(zxall)
+            print(weizhi1)
+            print(weizhi2)
+            print(weizhi3)
+            print(weizhi4)
+            print(weizhi5)
+            print(weizhi6)
+            print(zxall)
+            time.sleep(5) 
+            i=i+1
+            print_kaiqijc("正在判断循环")
+            if i==10:
+                name = input('继续请按1 停止请按NO\n')
+                if name == 'NO':
+                    kaiqijc__i=0
+                else:
+                    i=0
+   
+
+
+
 
 ##############识别段结束
 #############################输出段
@@ -359,3 +386,49 @@ def kaiqijc():#开启JC状态
 
 
 ###########接口段结束
+
+
+#zxhSB = 1
+def jitu_ZJS():#识别总J数
+    kaiqijc__i=1
+    i=0
+    while (kaiqijc__i == 1) :
+        dm.SetDict(0,"C:/Users/Administrator/Desktop/bmp/bmp/1.txt")
+        Z=MLshizi(20,647,54,680,"#216-40",0.9)
+        X=MLshizi(74,649,104,677,"#216-40",0.9)
+        H=MLshizi(121,649,165,680,"#216-40",0.9)
+        #ZS=Z+X+H
+        print_zjst(Z+X+H)
+        time.sleep(5) 
+        i=i+1
+        if i==200:
+            name = input('继续请按1 停止请按NO\n')
+            if name == 'NO':
+                kaiqijc__i=0
+            else:
+                i=0
+        #print(Z,X,H,'进入了')
+
+
+
+
+
+
+
+    
+
+
+    
+
+        
+''''
+hj=0
+a="img/zh"
+b=str(hj)
+c=".jpg"
+
+print(a+b+c)
+    
+    
+    #ZS=Z+X+H
+'''

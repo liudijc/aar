@@ -1,28 +1,55 @@
-from multiprocessing import Process,Manager
-def func1(shareList,shareValue,shareDict,lock):
-    with lock:
-        shareValue.value+=1
-        shareDict[1]='1'
-        shareDict[2]='2'
-        for i in range(len(shareList)):
-            shareList[i]+=1
- 
-if __name__ == '__main__':
-    manager=Manager()
-    list1=manager.list([1,2,3,4,5])
-    dict1=manager.dict()
-    array1=manager.Array('i',range(10))
-    value1=manager.Value('i',1)
-    lock=manager.Lock()
-    proc=[Process(target=func1,args=(list1,value1,dict1,lock)) for i in range(20)]
+def duqu_zxt():
+    f=open("C:/Users/Administrator/Documents/GitHub/aar/pydm/txt/print_zxt.txt","r")
+    s=f.read()
 
-    for p in proc:
-        p.start()
+    astr=s.split('\n')
+    ZXsrt=""
+    z=0
+    x=0
+    h=0
+    f.close()
+    for i in astr:
 
-    for p in proc:
-        p.join()
 
-    print(list1)
-    print(dict1)
-    print(array1)
-    print(value1)
+        if i=="x":
+            x=x+1
+            if z != 0:
+                ZXsrt=ZXsrt+"Z"+str(z) +","
+                z=0
+                h=0
+            elif h !=0:
+                ZXsrt=ZXsrt+"H"+str(h) +","
+                z=0
+                h=0
+        elif i=="z":
+            z=z+1
+            if x != 0:
+                ZXsrt=ZXsrt+"X"+str(x) +","
+                x=0
+                h=0
+            elif h !=0:
+                ZXsrt=ZXsrt+"H"+str(h) +","
+                x=0
+                h=0
+        elif i=="h":
+            h=h+1
+            if x != 0:
+                ZXsrt=ZXsrt+"X"+str(x) +","
+                x=0
+            elif z !=0:
+                ZXsrt=ZXsrt+"Z"+str(z) +","
+                z=0
+        elif i=="KO":
+            if x != 0:
+                ZXsrt=ZXsrt+"X"+str(x)
+            elif z !=0:
+                ZXsrt=ZXsrt+"Z"+str(z) 
+            elif h !=0:
+                ZXsrt=ZXsrt+"H"+str(h) 
+                z=0
+                x=0
+                h=0
+    return ZXsrt
+
+
+print(duqu_zxt())

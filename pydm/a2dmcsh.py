@@ -9,9 +9,11 @@ dm.Reg("a5282134e291406b8070224a148e0596e0da1c6d","")
 Fhwnd=dm.FindWindow("","雷电模拟器") 
 if Fhwnd != 0:
     hwnd=dm.FindWindowEx(Fhwnd,"RenderWindow",'') 
-    dm.SetDict(0,"dm_soft.txt")
+    print(hwnd)
+    #dm.SetDict(0,"dm_soft.txt")
     dm.SetPicPwd("a123456")
-    ck1=dm.BindWindowEx(hwnd,"gdi","windows","windows","",0)
+    #ck1=dm.BindWindowEx(hwnd,"gdx.graphic.opengl","windows","windows","",0)
+    ck1=dm.BindWindowEx(hwnd,"dx.graphic.opengl","windows","windows","",0)
     a1dmbl.dm=dm
     a1dmbl.hwnd=hwnd
     print(ck1)
