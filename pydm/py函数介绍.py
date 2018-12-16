@@ -26,10 +26,10 @@ dxcceshi.a3AIdm.YXN_shiziZXT()
 dxcceshi.a3AIdm.jinruOZT()
 dxcceshi.a3AIdm.jitu_ZJS()
 #dm.SetDict(0,"dm_soft.txt")
-dxcceshi.a3AIdm.dm.Ocr(0,0,2000,2000,"#216-40",0.9)
+dxcceshi.a3AIdm.dm.Ocr(10,708,39,900,"#216-40",0.8)
 
 dxcceshi.a3AIdm.dm.SetDict(0,"C:/Users/Administrator/Desktop/bmp/bmp/1.txt")
-dxcceshi.a3AIdm.dm.SetDict(1,"C:/Users/Administrator/Desktop/bmp/bmp/zxt.txt")
+dxcceshi.a3AIdm.dm.SetDict(0,"C:/Users/Administrator/Desktop/bmp/bmp/zxt.txt")
 dxcceshi.a3AIdm.MLshizi(10,708,39,900, "#216-40",0.8)
 C:\Users\Administrator\Desktop\bmp\bmp\1.txt
 dm.Ocr(0,0,2000,2000,"#40-0|#70-10",1.0)
