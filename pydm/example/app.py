@@ -5,6 +5,10 @@ from flask import Flask, render_template, session, request
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
     close_room, rooms, disconnect
 
+
+
+dwlj="E:/github/20181214/pydm/txt/"
+iphost="192.168.111.29"
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
 # the best option gased on installed packages.
@@ -23,7 +27,7 @@ def JSbuju(__id,ZJE,DJLZ):
         socketio.emit('KHD-ZX',letter,namespace=__id)
     socketio.emit('KHD-ZONGjine',ZJE,namespace=__id)
 def duqu_zxt():
-    f=open("C:/Users/Administrator/Documents/GitHub/aar/pydm/txt/print_zxt.txt","r")
+    f=open(dwlj+"print_zxt.txt","r")
     s=f.read()
 
     astr=s.split('\n')
@@ -75,7 +79,7 @@ def duqu_zxt():
                 h=0
     return ZXsrt
 def duqu_zjs():
-    f=open("C:/Users/Administrator/Documents/GitHub/aar/pydm/txt/print_zjst.txt","r")
+    f=open(dwlj+"print_zjst.txt","r")
     s=f.read()
     f.close()
     
@@ -152,4 +156,4 @@ def test_connect():
 
 if __name__ == '__main__':
     #socketio.run(app, debug=True)
-    socketio.run(app,debug=True,host='192.168.1.110',port=5000)
+    socketio.run(app,debug=True,host=iphost,port=5000)
