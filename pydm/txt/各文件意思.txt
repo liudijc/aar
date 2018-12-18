@@ -4,3 +4,4 @@ print_zjst.txt  ZXH总局数
 print_zt.txt	局内状态
 print_zuotailiebiao.txt	桌台列表
 print_zxt.txt	ZX图
+print_dt.txt	大厅

@@ -19,7 +19,7 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
-def JSbuju(__id,ZJE,DJLZ,ZT,ZJS,DTZT,ZTLB):
+def JSbuju(__id,ZJE,DJLZ,ZT,ZJS,DTZT,ZTLB,DT):
     danjuLZ=DJLZ.split(",")
     socketio.emit('KHD-buju','pybj',namespace='/test')
     for letter in danjuLZ:     # 第一个实例
@@ -30,6 +30,7 @@ def JSbuju(__id,ZJE,DJLZ,ZT,ZJS,DTZT,ZTLB):
     socketio.emit('KHD-zongshuju',ZJS,namespace=__id)
     socketio.emit('KHD-dtzhuangtai',DTZT,namespace=__id)
     socketio.emit('KHD-zuotailiebiao',ZTLB,namespace=__id)
+    socketio.emit('KHD-dt',DT,namespace=__id)
 
 
 def duqu_zxt():
@@ -114,6 +115,12 @@ def duqu_zuotailiebiao():
     f.close()
     
     return s
+def duqu_dt():
+    f=open(dwlj+"print_dt.txt","r")
+    s=f.read()
+    f.close()
+    
+    return s
 '''
 def background_thread():
     """Example of how to send server generated events to clients."""
@@ -139,7 +146,8 @@ def test_message(message):
     ZJS=duqu_zjs()  #总局数
     DTZT=duqu_DTZT() #大厅状态
     ZTLB=duqu_zuotailiebiao()
-    JSbuju(__id,ZJE,DJLZ,ZT,ZJS,DTZT,ZTLB)
+    DT=duqu_dt()
+    JSbuju(__id,ZJE,DJLZ,ZT,ZJS,DTZT,ZTLB,DT)
     print("my_event")
 
     
@@ -153,8 +161,20 @@ def test_WY_QRjine(message):
     #socketio.emit('KHD-ZX','Z10',namespace='/test')
     #socketio.emit('KHD-ZONGjine','10',namespace='/test')
    
-
-
+@socketio.on('WY_DTxuanzhong', namespace='/test')
+def test_WY_DTxuanzhong(message):
+    print(message)
+    
+    #socketio.emit('KHD-ZX','Z10',namespace='/test')
+    #socketio.emit('KHD-ZONGjine','10',namespace='/test')
+   
+@socketio.on('WY_ZTxuanzhong', namespace='/test')
+def test_WY_ZTxuanzhong(message):
+    print(message)
+    
+    #socketio.emit('KHD-ZX','Z10',namespace='/test')
+    #socketio.emit('KHD-ZONGjine','10',namespace='/test')
+   
 
 @socketio.on('connect', namespace='/test')#链接时触发
 def test_connect():
