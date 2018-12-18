@@ -1,0 +1,6 @@
+print_jczt.txt  当前监测状态
+print_zje.txt	总金额
+print_zjst.txt  ZXH总局数
+print_zt.txt	局内状态
+print_zuotailiebiao.txt	桌台列表
+print_zxt.txt	ZX图
